@@ -1,0 +1,71 @@
+[
+  {
+    "image": "https://i.ibb.co/bJt8xrr/instructor1.jpg",
+    "name": "Maria Rodriguez",
+    "email": "maria.rodriguez@example.com",
+    "classes": ["Spanish 101", "Advanced Spanish Grammar"]
+  },
+  {
+    "image": "https://i.ibb.co/By2jSdS/instructor2.jpg",
+    "name": "Jean-Pierre Dubois",
+    "email": "jeanpierre.dubois@example.com",
+    "classes": ["French for Beginners", "Intermediate French Conversation"]
+  },
+  {
+    "image": "https://i.ibb.co/1M67HT2/instructor3.jpg",
+    "name": "Hans Schmidt",
+    "email": "hans.schmidt@example.com",
+    "classes": ["German Advanced Conversation", "Business German"]
+  },
+  {
+    "image": "https://i.ibb.co/cDBLtcV/instructor4.jpg",
+    "name": "Giulia Rossi",
+    "email": "giulia.rossi@example.com",
+    "classes": ["Italian Grammar Masterclass", "Italian Pronunciation Workshop"]
+  },
+  {
+    "image": "https://i.ibb.co/kQzQgnb/instructor5.jpg",
+    "name": "Li Wei",
+    "email": "li.wei@example.com",
+    "classes": [
+      "Chinese Calligraphy Workshop",
+      "Intermediate Chinese Conversation"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co/bQ1xRd9/instructor6.png",
+    "name": "Yuki Tanaka",
+    "email": "yuki.tanaka@example.com",
+    "classes": ["Japanese for Travelers", "Japanese Kanji Learning"]
+  },
+  {
+    "image": "https://i.ibb.co/mSCfh8L/instructor8.jpg",
+    "name": "Ivan Petrov",
+    "email": "ivan.petrov@example.com",
+    "classes": ["Russian Pronunciation Guide", "Beginner Russian Grammar"]
+  },
+  {
+    "image": "https://i.ibb.co/mFLF973/instructor7.jpg",
+    "name": "Fatima Ahmed",
+    "email": "fatima.ahmed@example.com",
+    "classes": ["Arabic Writing Workshop", "Intermediate Arabic Conversation"]
+  },
+  {
+    "image": "https://i.ibb.co/WyS8dsC/instructor9.jpg",
+    "name": "Ricardo Silva",
+    "email": "ricardo.silva@example.com",
+    "classes": [
+      "Portuguese Conversation Practice",
+      "Brazilian Portuguese for Travelers"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co/mX6hHjb/instructor10.jpg",
+    "name": "Ji-Hoon Kim",
+    "email": "jihoon.kim@example.com",
+    "classes": [
+      "Korean Pop Culture and Language",
+      "Intermediate Korean Grammar"
+    ]
+  }
+]

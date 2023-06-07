@@ -1,0 +1,72 @@
+[
+  {
+    "image": "https://i.ibb.co/tKDyyQy/spanish.jpg",
+    "name": "Spanish 101",
+    "instructor": "Maria Rodriguez",
+    "seats": 20,
+    "price": 99.99
+  },
+  {
+    "image": "https://i.ibb.co/bQC7Pw5/frech.jpg",
+    "name": "French for Beginners",
+    "instructor": "Jean-Pierre Dubois",
+    "seats": 20,
+    "price": 89.99
+  },
+  {
+    "image": "https://i.ibb.co/D9hCHMv/german.jpg",
+    "name": "German Advanced Conversation",
+    "instructor": "Hans Schmidt",
+    "seats": 20,
+    "price": 109.99
+  },
+  {
+    "image": "https://i.ibb.co/9WYNSm6/itali.png",
+    "name": "Italian Grammar Masterclass",
+    "instructor": "Giulia Rossi",
+    "seats": 20,
+    "price": 79.99
+  },
+  {
+    "image": "https://i.ibb.co/R7hGXnS/chinese.jpg",
+    "name": "Chinese Calligraphy Workshop",
+    "instructor": "Li Wei",
+    "seats": 20,
+    "price": 119.99
+  },
+  {
+    "image": "https://i.ibb.co/CW8fTKv/japanese.jpg",
+    "name": "Japanese for Travelers",
+    "instructor": "Yuki Tanaka",
+    "seats": 20,
+    "price": 94.99
+  },
+  {
+    "image": "https://i.ibb.co/hMhWPVY/russian.jpg",
+    "name": "Russian Pronunciation Guide",
+    "instructor": "Ivan Petrov",
+    "seats": 20,
+    "price": 84.99
+  },
+  {
+    "image": "https://i.ibb.co/R36Z0vR/arabic.jpg",
+    "name": "Arabic Writing Workshop",
+    "instructor": "Fatima Ahmed",
+    "seats": 20,
+    "price": 129.99
+  },
+  {
+    "image": "https://i.ibb.co/xsbWFfq/portuguese.jpg",
+    "name": "Portuguese Conversation Practice",
+    "instructor": "Ricardo Silva",
+    "seats": 20,
+    "price": 74.99
+  },
+  {
+    "image": "https://i.ibb.co/LCD1WZB/korean.jpg",
+    "name": "Korean Pop Culture and Language",
+    "instructor": "Ji-Hoon Kim",
+    "seats": 20,
+    "price": 114.99
+  }
+]
