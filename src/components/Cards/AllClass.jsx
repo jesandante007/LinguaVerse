@@ -1,7 +1,7 @@
 import React from "react";
 
 const AllClass = ({ cls, handleSelect }) => {
-  const { _id, name, image, instructor, availableSeats, price } = cls;
+  const { name, image, instructor, availableSeats, price } = cls;
   return (
     <div className="card border border-gray-300 shadow-xl px">
       <figure className="px-4 pt-4 md:px-8 md:pt-8">

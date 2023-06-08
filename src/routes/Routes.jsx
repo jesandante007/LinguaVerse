@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home";
 import AllInstructors from "../pages/AllInstructors";
 import AllClasses from "../pages/AllClasses";
 import Dashboard from "../layouts/Dashboard";
+import SelectedClasses from "../pages/Dashboard/SelectedClasses";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,10 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <Dashboard />,
     children: [
-      
+      {
+        path: '/dashboard/selectedClasses',
+        element: <SelectedClasses />
+      }
     ]
   }
 ]);

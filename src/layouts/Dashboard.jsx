@@ -9,14 +9,13 @@ const Dashboard = () => {
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center">
-        <Outlet />
-        <p className="text-5xl">outlet content here</p>
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn bg-blue-500 hover:bg-blue-700 text-white drawer-button lg:hidden"
         >
           Open drawer
         </label>
+        <Outlet />  
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -25,7 +24,7 @@ const Dashboard = () => {
           <p className="text-center pb-8">{user?.email}</p>
           <li>
             <NavLink
-              to="/dashboard/"
+              to="/dashboard/selectedClasses"
               className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
             >
             <VscListSelection size={24} className="mr-3" />  My Selected Classes
@@ -33,7 +32,7 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink
-              to="/dashboard/asdf"
+              to="/dashboard/enrolledClasses"
               className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
             >
             <VscVerified size={24} className="mr-3" />  My Enrolled Classes
