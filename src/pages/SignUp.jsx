@@ -26,7 +26,7 @@ const SignUp = () => {
   const onSubmit = (data) => {
     const { name, email, password, cPassword, image } = data;
     if (password !== cPassword) {
-      alert("Password didn't match");
+      toast.error("Password didn't match");
     } else {
       const formData = new FormData();
       formData.append("image", image[0]);

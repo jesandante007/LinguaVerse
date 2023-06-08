@@ -4,6 +4,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -21,6 +22,13 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         setError("");
         navigate(from, { replace: true });
       })
@@ -33,6 +41,13 @@ const Login = () => {
     console.log(data);
     signIn(data.email, data.password)
       .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         setError("");
         navigate(from, { replace: true });
       })
@@ -100,7 +115,12 @@ const Login = () => {
           </div>
           <p className="cursor-pointer">Forgot Password</p>
         </div>
-        <p className="text-center">Not a member? <Link to='/signUp' className="text-blue-500">Sign Up</Link></p>
+        <p className="text-center">
+          Not a member?{" "}
+          <Link to="/signUp" className="text-blue-500">
+            Sign Up
+          </Link>
+        </p>
       </form>
     </div>
   );
