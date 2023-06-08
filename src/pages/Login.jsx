@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { saveUser } from "../api/auth";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -21,7 +22,8 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(() => {
+      .then((result) => {
+        saveUser(result.user)
         Swal.fire({
           position: "center",
           icon: "success",
@@ -38,7 +40,6 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     signIn(data.email, data.password)
       .then(() => {
         Swal.fire({

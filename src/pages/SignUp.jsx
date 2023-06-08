@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { saveUser } from "../api/auth";
 
 const SignUp = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
@@ -39,6 +40,7 @@ const SignUp = () => {
           .then((result) => {
             updateUserData(name, imageUrl)
               .then(() => {
+                saveUser(result.user)
                 toast.success("Sign Up successful");
                 navigate(from, { replace: true });
               })

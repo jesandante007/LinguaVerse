@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React from "react";
-import PopularInstructor from "../../components/Cards/PopularInstructor";
+import PopularInstructor from "../components/Cards/PopularInstructor";
+import axios from "axios";
 
-const PopularInstructors = () => {
+const AllInstructors = () => {
   const { data: instructors = [] } = useQuery({
     queryKey: ["instructors"],
     queryFn: async () => {
@@ -12,15 +12,17 @@ const PopularInstructors = () => {
     },
   });
   return (
-    <div className="container mx-auto mt-20">
-      <p className="text-center text-4xl font-medium mb-8">Popular Instructors</p>
+    <div className="container mx-auto my-4">
+      <p className="text-5xl text-center font-medium mb-8">
+        Meet Our Expert Instructors
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-0">
-        {instructors.slice(0, 6).map((instructor) => (
-          <PopularInstructor key={instructor._id} instructor={instructor} mail={false} />
+        {instructors.map((instructor) => (
+          <PopularInstructor key={instructor._id} instructor={instructor} mail={true} />
         ))}
       </div>
     </div>
   );
 };
 
-export default PopularInstructors;
+export default AllInstructors;

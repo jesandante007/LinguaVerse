@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const PopularInstructor = ({instructor}) => {
-    const {name, image, classes} = instructor;
-    return (
-        <div className="card border border-gray-300 shadow-xl px">
+const PopularInstructor = ({ instructor, mail }) => {
+  const { name, image, classes, email } = instructor;
+  return (
+    <div className="card border border-gray-300 shadow-xl px">
       <figure className="px-4 pt-4 md:px-8 md:pt-8">
         <img
           src={image}
@@ -12,10 +12,19 @@ const PopularInstructor = ({instructor}) => {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{name}</h2>
-        <div><span className="font-semibold">Instructor of:</span> <ul>{classes.map((cls,i) => <li key={i}>{cls}</li>)}</ul></div>
+        {mail && <p className="font-semibold">Email: {email}</p>}
+
+        <div>
+          <span className="font-semibold">Instructor of:</span>{" "}
+          <ul>
+            {classes.map((cls, i) => (
+              <li key={i}>{cls}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default PopularInstructor;
