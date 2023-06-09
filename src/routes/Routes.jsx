@@ -7,6 +7,8 @@ import AllInstructors from "../pages/AllInstructors";
 import AllClasses from "../pages/AllClasses";
 import Dashboard from "../layouts/Dashboard";
 import SelectedClasses from "../pages/Dashboard/SelectedClasses";
+import Payment from "../pages/Dashboard/Payment";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -27,24 +29,32 @@ const router = createBrowserRouter([
       },
       {
         path: "allInstructors",
-        element: <AllInstructors />
+        element: <AllInstructors />,
       },
       {
         path: "allClasses",
-        element: <AllClasses />
-      }
+        element: <AllClasses />,
+      },
     ],
   },
   {
-    path: '/dashboard',
+    path: "dashboard",
     element: <Dashboard />,
     children: [
       {
-        path: '/dashboard/selectedClasses',
-        element: <SelectedClasses />
-      }
-    ]
-  }
+        path: "selectedClasses",
+        element: <SelectedClasses />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
+      },
+    ],
+  },
 ]);
 
 export default router;

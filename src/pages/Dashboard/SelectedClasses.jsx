@@ -3,10 +3,12 @@ import React, { useContext } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
   const { user, loading } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
+  
   const { data: myClasses = [], refetch } = useQuery({
     queryKey: ["bookings", "myClasses"],
     enabled: !loading,
@@ -77,9 +79,11 @@ const SelectedClasses = () => {
               <th></th>
               <th className="text-gray-900">Total: {totalPrice}</th>
               <th>
-                <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white">
-                  Pay
-                </button>
+                <Link to="/dashboard/payment" state={totalPrice}>
+                  <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white">
+                    Pay
+                  </button>
+                </Link>
               </th>
             </tr>
           </tfoot>

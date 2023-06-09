@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { VscListSelection, VscHome, VscTable, VscVerified } from "react-icons/vsc";
+import {MdOutlinePayments} from 'react-icons/md'
 import { AuthContext } from "../providers/AuthProvider";
 
 const Dashboard = () => {
@@ -36,6 +37,14 @@ const Dashboard = () => {
               className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
             >
             <VscVerified size={24} className="mr-3" />  My Enrolled Classes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard/paymentHistory"
+              className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
+            >
+            <MdOutlinePayments size={24} className="mr-3" />  Payment History
             </NavLink>
           </li>
           <div className="divider"></div>
