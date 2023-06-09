@@ -47,6 +47,14 @@ const Dashboard = () => {
             <MdOutlinePayments size={24} className="mr-3" />  Payment History
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/dashboard/addClass"
+              className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
+            >
+            <MdOutlinePayments size={24} className="mr-3" />  Add a Class
+            </NavLink>
+          </li>
           <div className="divider"></div>
           <li>
             <NavLink
