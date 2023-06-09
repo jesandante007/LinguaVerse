@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { VscListSelection, VscHome, VscTable, VscVerified } from "react-icons/vsc";
 import {MdOutlinePayments} from 'react-icons/md'
+import {FaClipboardList} from 'react-icons/fa'
+import {HiAcademicCap} from 'react-icons/hi'
 import { AuthContext } from "../providers/AuthProvider";
 
 const Dashboard = () => {
@@ -52,7 +54,15 @@ const Dashboard = () => {
               to="/dashboard/addClass"
               className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
             >
-            <MdOutlinePayments size={24} className="mr-3" />  Add a Class
+            <FaClipboardList size={24} className="mr-3" />  Add a Class
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard/myClasses"
+              className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
+            >
+            <HiAcademicCap size={24} className="mr-3" />  My Classes
             </NavLink>
           </li>
           <div className="divider"></div>
