@@ -1,12 +1,22 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { toast } from "react-hot-toast";
 
 const FeedBackModal = ({ isOpen, closeModal, classInfo }) => {
+  const [axiosSecure] = useAxiosSecure();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    
-  }
+    console.log(data);
+    axiosSecure
+      .patch(`/feedbackClasses/${classInfo._id}`, data)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          toast.success("Your Feedback is Given Successfully");
+        }
+      });
+  };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -47,6 +57,7 @@ const FeedBackModal = ({ isOpen, closeModal, classInfo }) => {
                       className="resize-none w-full px-3 py-2 h-28 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                       {...register("feedback")}
                     />
+                    <div className="flex justify-between">
                     <button
                       type="submit"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -54,6 +65,14 @@ const FeedBackModal = ({ isOpen, closeModal, classInfo }) => {
                     >
                       Send Feedback!
                     </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Cancel
+                    </button>
+                    </div>
                   </form>
                 </div>
               </Dialog.Panel>
