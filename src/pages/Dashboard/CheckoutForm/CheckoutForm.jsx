@@ -2,18 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import "./CheckoutForm.css";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 
-const CheckoutForm = ({ totalPrice, myClasses }) => {
+const CheckoutForm = ({ totalPrice, myClasses, singleClass }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const [cardError, setCardError] = useState();
   const [clientSecret, setClientSecret] = useState(null);
-  const navigate = useNavigate();
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
 
@@ -68,24 +66,43 @@ const CheckoutForm = ({ totalPrice, myClasses }) => {
     if (confirmError) {
       setCardError(error.message);
     }
-    if(paymentIntent.status === 'succeeded') {
-        setTransactionId(paymentIntent.id)
-        // save payment information to the server
+    if (paymentIntent.status === "succeeded") {
+      setTransactionId(paymentIntent.id);
+      // save payment information to the server
+      if (myClasses) {
         const payment = {
-            email: user?.email,
-            transactionId: paymentIntent.id,
-            totalPrice,
-            date: new Date(),
-            classes: myClasses.map(cls => cls.classId),
-            bookings: myClasses.map(cls => cls._id),
-            classNames: myClasses.map(cls => cls.name)
-        }
-        axiosSecure.post('/payments', payment).then(res => {
-            console.log(res.data);
-            if(res.data.insertResult.insertedId){
-                toast.success('Payment Successful')
-            }
-        })
+          email: user?.email,
+          transactionId: paymentIntent.id,
+          totalPrice,
+          date: new Date(),
+          classes: myClasses.map((cls) => cls.classId),
+          bookings: myClasses.map((cls) => cls._id),
+          classNames: myClasses.map((cls) => cls.name),
+        };
+        axiosSecure.post("/payments", payment).then((res) => {
+          console.log(res.data);
+          if (res.data.insertResult.insertedId) {
+            toast.success("Payment Successful");
+          }
+        });
+      }
+      if (singleClass) {
+        const payment = {
+          email: user?.email,
+          transactionId: paymentIntent.id,
+          totalPrice,
+          date: new Date(),
+          classId: singleClass.classId,
+          bookingId: singleClass._id,
+          classNames: singleClass.name,
+        };
+        axiosSecure.post("/singlePayments", payment).then((res) => {
+          console.log(res.data);
+          if (res.data.insertResult.insertedId) {
+            toast.success("Payment Successful");
+          }
+        });
+      }
     }
   };
 

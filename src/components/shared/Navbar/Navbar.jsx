@@ -49,7 +49,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar mx-auto shadow-sm xl:px-10 md:px-6 sm:px-2 px-4">
+    <div className="navbar mx-auto bg-base-200 bg-opacity-30 shadow-sm xl:px-10 md:px-6 sm:px-2 px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -36,9 +36,11 @@ const PaymentHistory = () => {
               <tr key={pay._id}>
                 <th>{i + 1}</th>
                 <td>
-                  {pay.classNames.map((name) => (
-                    <span key={name}>{name}, </span>
-                  ))}
+                  {Array.isArray(pay.classNames)
+                    ? pay.classNames.map((name) => (
+                        <span key={name}>{name}, </span>
+                      ))
+                    : pay.classNames}
                 </td>
                 <td>{pay.transactionId}</td>
                 <td>
