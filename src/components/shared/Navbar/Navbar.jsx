@@ -1,11 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
+import { FaRegMoon, FaRegSun, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
+  const handleToggle = (e) => {
+    const value = e.target.checked;
+    if (value) {
+      setTheme("dracula");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme")
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
 
   const handleLogOut = () => {
     logOut()
@@ -94,6 +111,11 @@ const Navbar = () => {
             </button>
           </Link>
         )}
+        <label className="swap swap-rotate ml-3">
+          <input onChange={handleToggle} type="checkbox" />
+          <FaRegSun className="swap-on fill-current w-7 h-7" />
+          <FaRegMoon className="swap-off fill-current w-7 h-7" />
+        </label>
       </div>
     </div>
   );
