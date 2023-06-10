@@ -65,6 +65,22 @@ const Dashboard = () => {
             <HiAcademicCap size={24} className="mr-3" />  My Classes
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/dashboard/manageUsers"
+              className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
+            >
+            <HiAcademicCap size={24} className="mr-3" />  Manage Users
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard/manageClasses"
+              className={({ isActive }) => (isActive ? "bg-gray-300" : "")}
+            >
+            <HiAcademicCap size={24} className="mr-3" />  Manage Classes
+            </NavLink>
+          </li>
           <div className="divider"></div>
           <li>
             <NavLink
