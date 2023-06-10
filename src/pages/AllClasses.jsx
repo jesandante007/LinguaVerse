@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AllClasses = () => {
-  const { user } = useContext(AuthContext);
+  const { user, role } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
 
   const { data: classes = [] } = useQuery({
@@ -46,7 +46,7 @@ const AllClasses = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-0">
         {classes.map((cls) => (
-          <AllClass key={cls._id} cls={cls} handleSelect={handleSelect} />
+          <AllClass key={cls._id} cls={cls} handleSelect={handleSelect} role={role} />
         ))}
       </div>
     </div>

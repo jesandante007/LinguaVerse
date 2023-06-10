@@ -13,14 +13,7 @@ export const saveUser = (user) => {
     });
 };
 
-// make an user admin
-export const makeAdmin = (email) => {
-    const user = {
-      role: 'admin'
-    };
-    axios
-      .put(`${import.meta.env.VITE_API_URL}/users/${email}`, user)
-      .then((data) => {
-        console.log(data.data);
-      });
-  };
+export const getRole = async email => {
+  const res = await axios(`${import.meta.env.VITE_API_URL}/users/role/${email}`)
+  return res.data
+}
