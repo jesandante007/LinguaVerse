@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { toast } from "react-hot-toast";
+import FeedBackModal from "../../components/Modal/FeedBackModal";
 
 const ManageClasses = () => {
   const { loading } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
+  const [isOpen, setIsOpen] = useState(false);
+  const [classInfo, setClassInfo] = useState({});
   const { data: classes = [], refetch } = useQuery({
     queryKey: [],
     enabled: !loading,
@@ -33,6 +36,10 @@ const ManageClasses = () => {
         toast.success(`${cls.name} is denied successfully`);
       }
     });
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -101,7 +108,13 @@ const ManageClasses = () => {
                   </div>
                 </td>
                 <td>
-                  <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case">
+                  <button
+                    onClick={() => {
+                      setIsOpen(true);
+                      setClassInfo(cls);
+                    }}
+                    className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
+                  >
                     Write
                   </button>
                 </td>
@@ -109,6 +122,7 @@ const ManageClasses = () => {
             ))}
           </tbody>
         </table>
+        <FeedBackModal isOpen={isOpen} closeModal={closeModal} classInfo={classInfo} />
       </div>
     </div>
   );
