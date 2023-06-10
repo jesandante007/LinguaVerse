@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 const ManageClasses = () => {
   const { loading } = useContext(AuthContext);
@@ -16,13 +17,23 @@ const ManageClasses = () => {
     },
   });
 
-  const handleApprove = cls => {
+  const handleApprove = (cls) => {
+    axiosSecure.patch(`/approveClasses/${cls._id}`).then((res) => {
+      if (res.data.modifiedCount) {
+        refetch();
+        toast.success(`${cls.name} is approved successfully`);
+      }
+    });
+  };
 
-  }
-
-  const handleDeny = cls => {
-
-  }
+  const handleDeny = (cls) => {
+    axiosSecure.patch(`/denyClasses/${cls._id}`).then((res) => {
+      if (res.data.modifiedCount) {
+        refetch();
+        toast.success(`${cls.name} is denied successfully`);
+      }
+    });
+  };
 
   return (
     <div className="w-full max-w-5xl p-4">
@@ -69,11 +80,23 @@ const ManageClasses = () => {
                 <td>{cls?.status}</td>
                 <td>
                   <div className="flex items-center space-x-3">
-                    <button onClick={() => handleApprove(cls)} className="btn btn-square btn-success btn-outline btn-sm">
+                    <button
+                      onClick={() => handleApprove(cls)}
+                      className="btn btn-square btn-success btn-outline btn-sm"
+                      disabled={
+                        cls.status === "approved" || cls.status === "denied"
+                      }
+                    >
                       <FaCheck size={20} />
                     </button>
-                    <button onClick={() => handleDeny(cls)} className="btn btn-square btn-error btn-sm btn-outline">
-                     <FaTimes size={20} />
+                    <button
+                      onClick={() => handleDeny(cls)}
+                      className="btn btn-square btn-error btn-sm btn-outline"
+                      disabled={
+                        cls.status === "approved" || cls.status === "denied"
+                      }
+                    >
+                      <FaTimes size={20} />
                     </button>
                   </div>
                 </td>
