@@ -18,8 +18,8 @@ const EnrolledClasses = () => {
   return (
     <div className="w-full max-w-5xl p-4">
       <p className="text-4xl font-medium text-center mb-8">Enrolled Classes</p>
-      <div className="overflow-x-auto my-4 rounded">
-        <table className="table table-zebra border border-gray-300 text-base">
+      <div className="overflow-x-auto my-4 border border-gray-300 rounded">
+        <table className="table table-zebra text-base">
           <thead>
             <tr className="text-base">
               <th>SL</th>

@@ -20,8 +20,8 @@ const PaymentHistory = () => {
       <p className="text-4xl font-medium text-center mb-8">
         Your Payment History
       </p>
-      <div className="overflow-x-auto my-4 rounded">
-        <table className="table table-zebra border border-gray-300 text-base">
+      <div className="overflow-x-auto my-4 border border-gray-300 rounded">
+        <table className="table table-zebra text-base">
           <thead>
             <tr className="text-base">
               <th>SL</th>
