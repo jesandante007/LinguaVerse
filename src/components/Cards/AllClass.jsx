@@ -1,4 +1,5 @@
 import React from "react";
+import MotionButton from "../Button/MotionButton";
 
 const AllClass = ({ cls, handleSelect, role }) => {
   const { name, image, instructor, availableSeats, price } = cls;
@@ -26,15 +27,17 @@ const AllClass = ({ cls, handleSelect, role }) => {
         <p>
           <span className="font-semibold">Price:</span> ${price}
         </p>
-        <button
-          onClick={() => handleSelect(cls)}
-          className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded disabled:bg-gray-500"
-          disabled={
-            availableSeats == 0 || role == "admin" || role == "instructor"
-          }
-        >
-          Select Course
-        </button>
+        <MotionButton>
+          <button
+            onClick={() => handleSelect(cls)}
+            className="mt-6 w-full btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded"
+            disabled={
+              availableSeats == 0 || role == "admin" || role == "instructor"
+            }
+          >
+            Select Course
+          </button>
+        </MotionButton>
       </div>
     </div>
   );

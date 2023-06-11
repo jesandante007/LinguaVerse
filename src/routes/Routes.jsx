@@ -17,11 +17,14 @@ import UpdateClass from "../pages/Dashboard/UpdateClass";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import ManageClasses from "../pages/Dashboard/ManageClasses";
 import SinglePayment from "../pages/Dashboard/SinglePayment";
+import ErrorPage from "../pages/ErrorPage";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -52,7 +55,12 @@ const router = createBrowserRouter([
         <Dashboard />
       </PrivateRoute>
     ),
+    errorElement: <ErrorPage />,
     children: [
+      {
+        path: "",
+        element: <DashboardHome />,
+      },
       {
         path: "selectedClasses",
         element: <SelectedClasses />,
@@ -62,8 +70,8 @@ const router = createBrowserRouter([
         element: <Payment />,
       },
       {
-        path: 'payment/:id',
-        element: <SinglePayment />
+        path: "payment/:id",
+        element: <SinglePayment />,
       },
       {
         path: "enrolledClasses",
@@ -78,21 +86,21 @@ const router = createBrowserRouter([
         element: <AddClass />,
       },
       {
-        path: 'myClasses',
-        element: <MyClasses />
+        path: "myClasses",
+        element: <MyClasses />,
       },
       {
-        path: 'updateClass/:id',
+        path: "updateClass/:id",
         element: <UpdateClass />,
       },
       {
-        path: 'manageUsers',
-        element: <ManageUsers />
+        path: "manageUsers",
+        element: <ManageUsers />,
       },
       {
-        path: 'manageClasses',
-        element: <ManageClasses />
-      }
+        path: "manageClasses",
+        element: <ManageClasses />,
+      },
     ],
   },
 ]);

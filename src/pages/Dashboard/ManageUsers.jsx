@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import MotionButton from "../../components/Button/MotionButton";
 
 const ManageUsers = () => {
   const { loading } = useContext(AuthContext);
@@ -55,22 +56,26 @@ const ManageUsers = () => {
                 <td>{usr?.name}</td>
                 <td>{usr?.email}</td>
                 <td>
-                  <button
-                    onClick={() => handleMakeAdmin(usr)}
-                    className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
-                    disabled={usr?.role === "admin"}
-                  >
-                    Make Admin
-                  </button>
+                  <MotionButton>
+                    <button
+                      onClick={() => handleMakeAdmin(usr)}
+                      className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
+                      disabled={usr?.role === "admin"}
+                    >
+                      Make Admin
+                    </button>
+                  </MotionButton>
                 </td>
                 <td>
-                  <button
-                    onClick={() => handleMakeInstructor(usr)}
-                    className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
-                    disabled={usr?.role === "instructor"}
-                  >
-                    Make Instructor
-                  </button>
+                  <MotionButton>
+                    <button
+                      onClick={() => handleMakeInstructor(usr)}
+                      className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
+                      disabled={usr?.role === "instructor" || usr?.role === 'admin'}
+                    >
+                      Make Instructor
+                    </button>
+                  </MotionButton>
                 </td>
               </tr>
             ))}

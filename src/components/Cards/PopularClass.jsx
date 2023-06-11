@@ -3,7 +3,7 @@ import React from 'react';
 const PopularClass = ({cls}) => {
     const { name, image, instructor } = cls;
     return (
-        <div className="card border border-gray-300 shadow-xl px">
+        <div className="card border border-gray-300 shadow-xl">
       <figure className="px-4 pt-4 md:px-8 md:pt-8">
         <img
           src={image}

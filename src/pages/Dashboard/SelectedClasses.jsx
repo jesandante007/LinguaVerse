@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import MotionButton from "../../components/Button/MotionButton";
 
 const SelectedClasses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -63,19 +64,23 @@ const SelectedClasses = () => {
                 <td>{cls.instructor}</td>
                 <td>{cls.price}</td>
                 <td>
-                  <button
-                    onClick={() => handleDelete(cls._id)}
-                    className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
-                  >
-                    Delete
-                  </button>
+                  <MotionButton>
+                    <button
+                      onClick={() => handleDelete(cls._id)}
+                      className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
+                    >
+                      Delete
+                    </button>
+                  </MotionButton>
                 </td>
                 <td>
-                  <Link to={`/dashboard/payment/${cls._id}`}>
-                    <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white">
-                      Pay
-                    </button>
-                  </Link>
+                  <MotionButton>
+                    <Link to={`/dashboard/payment/${cls._id}`}>
+                      <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white">
+                        Pay
+                      </button>
+                    </Link>
+                  </MotionButton>
                 </td>
               </tr>
             ))}
@@ -85,7 +90,7 @@ const SelectedClasses = () => {
               <th></th>
               <th></th>
               <th></th>
-              <th className="text-gray-900">Total: {totalPrice}</th>
+              <th className="text-accent">Total: {totalPrice}</th>
               <th></th>
               <th>
                 <Link to="/dashboard/payment">

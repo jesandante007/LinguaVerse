@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import FeedBackModal from "../../components/Modal/FeedBackModal";
+import MotionButton from "../../components/Button/MotionButton";
 
 const ManageClasses = () => {
   const { loading } = useContext(AuthContext);
@@ -108,21 +109,27 @@ const ManageClasses = () => {
                   </div>
                 </td>
                 <td>
-                  <button
-                    onClick={() => {
-                      setIsOpen(true);
-                      setClassInfo(cls);
-                    }}
-                    className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
-                  >
-                    Write
-                  </button>
+                  <MotionButton>
+                    <button
+                      onClick={() => {
+                        setIsOpen(true);
+                        setClassInfo(cls);
+                      }}
+                      className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case"
+                    >
+                      Write
+                    </button>
+                  </MotionButton>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <FeedBackModal isOpen={isOpen} closeModal={closeModal} classInfo={classInfo} />
+        <FeedBackModal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          classInfo={classInfo}
+        />
       </div>
     </div>
   );

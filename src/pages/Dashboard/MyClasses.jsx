@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import MotionButton from "../../components/Button/MotionButton";
 
 const MyClasses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -40,11 +41,13 @@ const MyClasses = () => {
                 <td>{cls.status}</td>
                 <td>{cls?.feedback}</td>
                 <td>
-                  <Link to={`/dashboard/updateClass/${cls._id}`}>
-                    <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case">
-                      Update
-                    </button>
-                  </Link>
+                  <MotionButton>
+                    <Link to={`/dashboard/updateClass/${cls._id}`}>
+                      <button className="btn btn-sm bg-blue-500 hover:bg-blue-700 text-white normal-case">
+                        Update
+                      </button>
+                    </Link>
+                  </MotionButton>
                 </td>
               </tr>
             ))}
