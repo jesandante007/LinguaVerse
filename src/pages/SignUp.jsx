@@ -41,7 +41,7 @@ const SignUp = () => {
           .then((result) => {
             updateUserData(name, imageUrl)
               .then(() => {
-                saveUser(result.user)
+                saveUser(result.user);
                 toast.success("Sign Up successful");
                 navigate(from, { replace: true });
               })

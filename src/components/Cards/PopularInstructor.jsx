@@ -17,9 +17,9 @@ const PopularInstructor = ({ instructor, mail }) => {
         <div>
           <span className="font-semibold">Instructor of:</span>{" "}
           <ul>
-            {classes.map((cls, i) => (
+            {Array.isArray(classes) ? classes.map((cls, i) => (
               <li key={i}>{cls}</li>
-            ))}
+            )) : ''}
           </ul>
         </div>
       </div>

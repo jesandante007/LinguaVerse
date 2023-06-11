@@ -8,7 +8,12 @@ import { Helmet } from "react-helmet-async";
 
 const AddClass = () => {
   const { user } = useContext(AuthContext);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [axiosSecure] = useAxiosSecure();
 
   const onSubmit = (data) => {
@@ -32,6 +37,7 @@ const AddClass = () => {
       };
       axiosSecure.post("/classes", cls).then((res) => {
         if (res.data.insertedId) {
+          reset();
           toast.success("Your Class Added Successfully");
         }
       });
@@ -104,9 +110,14 @@ const AddClass = () => {
             <input
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
               type="number"
-              max="20"
-              {...register("availableSeats", { required: true })}
+              placeholder="max limit 20"
+              {...register("availableSeats", { required: true, max: 20 })}
             />
+            {errors.availableSeats && errors.availableSeats.type === "max" && (
+              <p className="text-error">
+                Number must be less than or equal to 20
+              </p>
+            )}
           </div>
           <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">

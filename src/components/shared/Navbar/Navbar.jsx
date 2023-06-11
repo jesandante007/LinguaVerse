@@ -113,8 +113,8 @@ const Navbar = () => {
         )}
         <label className="swap swap-rotate ml-3">
           <input onChange={handleToggle} type="checkbox" />
-          <FaRegSun className="swap-on fill-current w-7 h-7" />
-          <FaRegMoon className="swap-off fill-current w-7 h-7" />
+          <FaRegSun className="swap-on fill-current w-6 h-6" />
+          <FaRegMoon className="swap-off fill-current w-6 h-6" />
         </label>
       </div>
     </div>
