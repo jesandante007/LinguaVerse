@@ -23,8 +23,8 @@ const SinglePayment = () => {
       return res.data;
     },
   });
-  const totalPrice = singleClass.price;
-  
+  const totalPrice = parseFloat(singleClass?.price);
+
   return (
     <div className="w-full p-4 mx-auto">
       <Helmet>
