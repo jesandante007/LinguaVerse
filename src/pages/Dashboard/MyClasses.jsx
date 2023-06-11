@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import MotionButton from "../../components/Button/MotionButton";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -19,6 +20,9 @@ const MyClasses = () => {
 
   return (
     <div className="w-full max-w-5xl p-4">
+      <Helmet>
+        <title>LinguaVerse | My Classes</title>
+      </Helmet>
       <p className="text-4xl font-medium text-center mb-8">My Added Classed</p>
       <div className="overflow-x-auto my-4 border border-gray-300 rounded">
         <table className="table table-zebra text-base">

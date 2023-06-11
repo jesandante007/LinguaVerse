@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const EnrolledClasses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -17,6 +18,9 @@ const EnrolledClasses = () => {
   });
   return (
     <div className="w-full max-w-5xl p-4">
+      <Helmet>
+        <title>LinguaVerse | Enrolled Classes</title>
+      </Helmet>
       <p className="text-4xl font-medium text-center mb-8">Enrolled Classes</p>
       <div className="overflow-x-auto my-4 border border-gray-300 rounded">
         <table className="table table-zebra text-base">

@@ -5,6 +5,7 @@ import axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
   const { user, role } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const AllClasses = () => {
   };
   return (
     <div className="container mx-auto my-4">
+      <Helmet>
+        <title>LinguaVerse | All Classes</title>
+      </Helmet>
       <p className="text-5xl text-center font-medium mb-8">
         Explore Our Language Classes
       </p>

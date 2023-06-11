@@ -6,6 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { saveUser } from "../api/auth";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
-        saveUser(result.user)
+        saveUser(result.user);
         Swal.fire({
           position: "center",
           icon: "success",
@@ -59,6 +60,9 @@ const Login = () => {
 
   return (
     <div className="p-4">
+      <Helmet>
+        <title>LinguaVerse | Login</title>
+      </Helmet>
       <form
         className="max-w-md mx-auto px-4 md:px-8 py-10 md:border border-gray-300 rounded-md md:shadow"
         onSubmit={handleSubmit(onSubmit)}

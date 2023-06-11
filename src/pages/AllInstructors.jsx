@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import PopularInstructor from "../components/Cards/PopularInstructor";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AllInstructors = () => {
   const { data: instructors = [] } = useQuery({
@@ -13,6 +14,9 @@ const AllInstructors = () => {
   });
   return (
     <div className="container mx-auto my-4">
+      <Helmet>
+        <title>LinguaVerse | All Instructor</title>
+      </Helmet>
       <p className="text-5xl text-center font-medium mb-8">
         Meet Our Expert Instructors
       </p>

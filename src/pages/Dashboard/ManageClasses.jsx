@@ -6,6 +6,7 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import FeedBackModal from "../../components/Modal/FeedBackModal";
 import MotionButton from "../../components/Button/MotionButton";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const { loading } = useContext(AuthContext);
@@ -45,6 +46,9 @@ const ManageClasses = () => {
 
   return (
     <div className="w-full max-w-5xl p-4">
+      <Helmet>
+        <title>LinguaVerse | Manage Classes</title>
+      </Helmet>
       <p className="text-4xl font-medium text-center mb-8">Manage Classes</p>
       <div className="overflow-x-auto my-4 border border-gray-300 rounded">
         <table className="table table-zebra text-base">

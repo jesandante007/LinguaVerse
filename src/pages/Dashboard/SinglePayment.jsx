@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
@@ -26,6 +27,9 @@ const SinglePayment = () => {
   
   return (
     <div className="w-full p-4 mx-auto">
+      <Helmet>
+        <title>LinguaVerse | Single Payment</title>
+      </Helmet>
       <Elements stripe={stripePromise}>
         <CheckoutForm totalPrice={totalPrice} singleClass={singleClass} />
       </Elements>

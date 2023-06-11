@@ -5,6 +5,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const UpdateClass = () => {
   const { user } = useContext(AuthContext);
@@ -55,6 +56,9 @@ const UpdateClass = () => {
 
   return (
     <div className="p-4">
+      <Helmet>
+        <title>LinguaVerse | Update Class</title>
+      </Helmet>
       <form
         className="max-w-5xl mx-auto px-4 md:px-8 py-10 md:border border-gray-300 rounded-md md:shadow"
         onSubmit={handleSubmit(onSubmit)}

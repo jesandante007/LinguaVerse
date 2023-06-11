@@ -5,6 +5,7 @@ import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
@@ -24,6 +25,9 @@ const Payment = () => {
   const totalPrice = parseFloat(total.toFixed(2));
   return (
     <div className="w-full p-4 mx-auto">
+      <Helmet>
+        <title>LinguaVerse | Payment</title>
+      </Helmet>
       <Elements stripe={stripePromise}>
         <CheckoutForm totalPrice={totalPrice} myClasses={myClasses} />
       </Elements>

@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import MotionButton from "../../components/Button/MotionButton";
+import { Helmet } from "react-helmet-async";
 
 const SelectedClasses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -43,6 +44,9 @@ const SelectedClasses = () => {
   };
   return (
     <div className="w-full max-w-5xl p-4">
+      <Helmet>
+        <title>LinguaVerse | Selected Classes</title>
+      </Helmet>
       <p className="text-4xl font-medium text-center mb-8">Selected Classes</p>
       <div className="overflow-x-auto my-4 border border-gray-300 rounded">
         <table className="table table-zebra text-base">

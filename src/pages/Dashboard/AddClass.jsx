@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AddClass = () => {
   const { user } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const AddClass = () => {
   };
   return (
     <div className="p-4">
+      <Helmet>
+        <title>LinguaVerse | Add A Class</title>
+      </Helmet>
       <form
         className="max-w-5xl mx-auto px-4 md:px-8 py-10 md:border border-gray-300 rounded-md md:shadow"
         onSubmit={handleSubmit(onSubmit)}

@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import MotionButton from "../../components/Button/MotionButton";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const { loading } = useContext(AuthContext);
@@ -37,6 +38,9 @@ const ManageUsers = () => {
 
   return (
     <div className="w-full max-w-5xl p-4">
+      <Helmet>
+        <title>LinguaVerse | Manage Users</title>
+      </Helmet>
       <p className="text-4xl font-medium text-center mb-8">Manage All Users</p>
       <div className="overflow-x-auto my-4 border border-gray-300 rounded">
         <table className="table table-zebra text-base">
